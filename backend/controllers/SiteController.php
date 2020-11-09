@@ -61,22 +61,9 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionIndex($cu, $nu, $hu)
+    public function actionIndex()
     {
-        $usuario = new Usuario();
-        if($cu != null && $nu != null && $hu != null){
-            $usuario = Usuario::find()->where(['Llave' => $cu])->one();
-            if($usuario != null){
-                $persona = $usuario->getPersona();
-                Yii::$app->user->login($usuario);
-                return $this->render('index');
-            }else{
-                return $this->render('login');
-            }
-        }else{
-            return $this->render('login');
-        }
-        return $this->render('index');
+        return $this->render('login');
     }
 
     /**
